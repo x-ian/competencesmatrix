@@ -1,0 +1,7 @@
+one:
+  name: Employee1
+  employee_group_id: 1
+
+two:
+  name: Employee2
+  employee_group_id: 1

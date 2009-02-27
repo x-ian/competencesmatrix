@@ -1,0 +1,6 @@
+<%= javascript_include_tag :defaults %>
+
+<%= render :partial => 'edit_employee' if @employee != nil %>
+<%= render :partial => 'new_employee' if @employee == nil %>
+
+<%= render :partial => 'list_employees' %>

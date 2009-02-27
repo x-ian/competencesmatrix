@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  skill_maturity_model_id: 1
+  value: MyString
+  description: MyText
+
+two:
+  skill_maturity_model_id: 1
+  value: MyString
+  description: MyText

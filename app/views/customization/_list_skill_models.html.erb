@@ -1,0 +1,20 @@
+<h1>Listing skill models</h1>
+
+<table cellspacing="0" cellpadding="0">
+  <colgroup>
+    <col width="200">
+    <col width="200">
+  </colgroup>
+  <tr>
+    <th class="header">Name</th>
+    <th class="header">Description</th>
+  </tr>
+
+  <% for e in SkillModel.find(:all) %>
+    <tr class="<%=cycle('record', 'even-record record') %>">
+      <td><%=link_to e.name, :action => "edit_skill_model", :id => e %></td>
+      <td><%=h e.description %></td>
+    </tr>
+  <% end %>
+
+</table>

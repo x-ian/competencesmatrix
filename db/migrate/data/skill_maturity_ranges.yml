@@ -1,0 +1,29 @@
+one:
+  id: 1
+  skill_maturity_model_id: 2
+  value: Maturity Level 1
+  default_maturity_range_description: Beginner
+
+two:
+  id: 2
+  skill_maturity_model_id: 2
+  value: Maturity Level 2
+  default_maturity_range_description: Intermediate
+
+three:
+  id: 3
+  skill_maturity_model_id: 2
+  value: Maturity Level 3
+  default_maturity_range_description: Expert
+
+four:
+  id: 4
+  skill_maturity_model_id: 2
+  value: Maturity Level 4
+  default_maturity_range_description: Specialist
+
+five:
+  id: 5
+  skill_maturity_model_id: 1
+  value: none
+  default_maturity_range_description: 

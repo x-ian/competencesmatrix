@@ -1,0 +1,37 @@
+<h1>New Organizational unit</h1>
+
+<table>
+  <% form_for(OrganizationalUnit.new, :url => { :action => "create"}) do |f| %>
+    <%= f.error_messages %>
+    <colgroup>
+      <col width="200">
+      <col width="200">
+      <col width="350">
+    </colgroup>
+    <tr>
+      <td>
+        <%= f.label :name %><br/>
+        <%= f.text_field :name %>
+      </td>
+      <td>
+        <%= f.label :parent %><br/>
+        <%= tree_select(
+          OrganizationalUnit.find_all_root_elements,
+          'organizational_unit',
+          'parent_id',
+          nil,
+          nil
+        ) %>
+      </td>
+      <td>
+        <%= f.label :description %><br />
+        <%= f.text_area :description, :size=>"40x4" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.submit "Add" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

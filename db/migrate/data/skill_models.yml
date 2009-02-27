@@ -1,0 +1,7 @@
+one:
+  id: 1
+  name: Default (A, B, C, D)
+
+two:
+  id: 2
+  name: Binary (yes, no)

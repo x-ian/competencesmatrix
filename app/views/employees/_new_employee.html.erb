@@ -1,0 +1,44 @@
+<h1>New employee</h1>
+
+<table>
+  <colgroup>
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="100">
+  </colgroup>
+  <% form_for(Employee.new, :url => { :action => "create"}) do |f| %>
+    <%= f.error_messages %>
+    <tr>
+      <td>
+        <%= f.label :name %><br/>
+        <%= f.text_field :name %>
+      </td>
+      <td>
+        <%= f.label :organizational_units%><br/>(multiple tree)<br/>
+        <%= select_tag("organizational_unit_ids[]",
+          options_for_select(OrganizationalUnit.find(:all).collect { |unit| [unit.name , unit.id] },
+            {}),
+          {:multiple=>true, :size=>5}) %>
+      </td>
+      <td>
+        <%= f.label :role %><br />
+        <%= f.collection_select(:role_id, Role.find(:all), :id, :name, { :include_blank=>true }) %>
+      </td>
+      <td>
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
+      </td>
+      <td>
+        <%= f.label :inactive %><br />
+        <%= f.check_box :inactive %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.submit "Add" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

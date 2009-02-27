@@ -1,0 +1,30 @@
+<%= javascript_include_tag :defaults %>
+
+<%= link_to_function "Skill models", visual_effect(:toggle_blind,"skill_models")%>
+<%= link_to_function "Skill ranges", visual_effect(:toggle_blind,"skill_ranges")%>
+<%= link_to_function "Skill maturity models", visual_effect(:toggle_blind,"skill_maturity_models")%>
+<%= link_to_function "Skill maturity ranges", visual_effect(:toggle_blind,"skill_maturity_ranges")%>
+
+<div id="skill_models">
+  <%= render :partial => 'edit_skill_model' if @skill_model != nil %>
+  <%= render :partial => 'new_skill_model' if @skill_model == nil %>
+  <%= render :partial => 'list_skill_models' %>
+</div>
+
+<div id="skill_ranges">
+  <%= render :partial => 'edit_skill_range' if @skill_range != nil %>
+  <%= render :partial => 'new_skill_range' if @skill_range == nil %>
+  <%= render :partial => 'list_skill_ranges' %>
+</div>
+
+<div id="skill_maturity_models">
+  <%= render :partial => 'edit_skill_maturity_model' if @skill_maturity_model != nil %>
+  <%= render :partial => 'new_skill_maturity_model' if @skill_maturity_model == nil %>
+  <%= render :partial => 'list_skill_maturity_models' %>
+</div>
+
+<div id="skill_maturity_ranges">
+  <%= render :partial => 'edit_skill_maturity_range' if @skill_maturity_range != nil %>
+  <%= render :partial => 'new_skill_maturity_range' if @skill_maturity_range == nil %>
+  <%= render :partial => 'list_skill_maturity_ranges' %>
+</div>

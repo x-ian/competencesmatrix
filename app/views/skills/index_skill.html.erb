@@ -1,0 +1,12 @@
+<%= javascript_include_tag :defaults %>
+
+<table>
+  <tr>
+    <td valign="top"><%= render :partial => 'submenu' %></td>
+    <td>
+      <%= render :partial => 'edit_skill' if @skill != nil %>
+      <%= render :partial => 'new_skill' if @skill == nil %>
+      <%= render :partial => 'list_skills' %>
+    </td>
+  </tr>
+</table>

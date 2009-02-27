@@ -1,0 +1,34 @@
+<%= javascript_include_tag :defaults %>
+<%= stylesheet_link_tag 'popup-kit/popup.css' %>
+<%= javascript_include_tag 'popup-kit/popup.js' %>
+
+<table>
+  <tr>
+    <td valign="top"><%= render :partial => 'submenu' %></td>
+    <td>
+      <h1>Competences matrix for roles</h1>
+
+      <table cellspacing="0" cellpadding="0">
+        <tr>
+          <th class="header"><%= "Employee" if @actual_competences %><%= "Role" if @required_competences %>/ Skill</th>
+          <% for skill in @skills %>
+            <th class="header"><%=skill.name%></th>
+          <% end %>
+        </tr>
+
+        <% for employee_or_role in @employees_or_roles %>
+          <tr class="<%=cycle('record', 'even-record record') %>">
+            <td class="header"><%=h employee_or_role.name %></td>
+            <% for skill in @skills %>
+              <% c_id = competence_id(employee_or_role, skill) %>
+              <td id="edit_competence_link_<%=c_id%>" title="Click to edit competence"> <!-- onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#CECECE'" -->
+                <%= render :partial => 'competence_cell', :locals => {:employee_or_role => employee_or_role, :skill => skill, :actual_competences => @actual_competences, :required_competences => @required_competences} %>
+              </td>
+            <% end %>
+
+          </tr>
+        <% end %>
+      </table>
+    </td>
+  </tr>
+</table>

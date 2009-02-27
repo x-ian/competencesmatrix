@@ -1,0 +1,33 @@
+<h1>Listing employees</h1>
+
+<table cellspacing="0" cellpadding="0">
+  <colgroup>
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="100">
+  </colgroup>
+  <tr>
+    <th class="header">Name</th>
+    <th class="header">Organizational Units</th>
+    <th class="header">Role</th>
+    <th class="header">Email</th>
+    <th class="header">Inactive</th>
+  </tr>
+
+  <% for e in Employee.find(:all) %>
+    <tr class="<%=cycle('record', 'even-record record') %>">
+      <td><%=link_to e.name, :action => "edit", :id => e %></td>
+      <td>
+        <% for unit in e.organizational_units %>
+          <%= h unit.name %>, 
+        <% end %>
+      </td>
+      <td><%=h e.role.name unless e.role == nil %></td>
+      <td><%=h e.email %></td>
+      <td><%=h e.inactive %></td>
+    </tr>
+  <% end %>
+
+</table>

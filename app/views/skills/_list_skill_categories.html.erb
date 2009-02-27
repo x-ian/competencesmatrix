@@ -1,0 +1,23 @@
+<h1>Listing skill categories</h1>
+
+<table cellspacing="0" cellpadding="0">
+  <colgroup>
+    <col width="200">
+    <col width="200">
+    <col width="350">
+  </colgroup>
+  <tr>
+    <th class="header">Name</th>
+    <th class="header">Parent</th>
+    <th class="header">Description</th>
+  </tr>
+
+  <% for unit in SkillCategory.find(:all) %>
+    <tr class="<%=cycle('record', 'even-record record') %>">
+      <td><%=link_to unit.name, :action => "edit_skill_category", :id => unit %></td>
+      <td><%= h unit.parent.name if SkillCategory.exists?(unit.parent_id) && unit.parent_id != 0 && unit.parent != nil %></td>
+      <td><%=h unit.description %></td>
+    </tr>
+  <% end %>
+
+</table>

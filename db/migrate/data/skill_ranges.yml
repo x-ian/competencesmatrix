@@ -1,0 +1,29 @@
+one:
+  id: 1
+  skill_model_id: 1
+  value: A
+
+two:
+  id: 2
+  skill_model_id: 1
+  value: B
+
+three:
+  id: 3
+  skill_model_id: 1
+  value: C
+
+four:
+  id: 4
+  skill_model_id: 1
+  value: D
+
+five:
+  id: 5
+  skill_model_id: 2
+  value: yes
+
+six:
+  id: 6
+  skill_model_id: 2
+  value: no

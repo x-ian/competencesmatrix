@@ -1,0 +1,51 @@
+<h1>Edit employee</h1>
+
+<table>
+  <colgroup>
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="100">
+  </colgroup>
+  <% form_for(@employee, :url => { :action => "update", :id => @employee}) do |f| %>
+    <%= f.error_messages %>
+    <tr>
+      <td>
+        <%= f.label :name %><br/>
+        <%= f.text_field :name %>
+      </td>
+      <td>
+        <%= f.label :organizational_units %> <br/>(multiple tree)<br/>
+        <%= select_tag("organizational_unit_ids[]",
+          options_for_select(OrganizationalUnit.find(:all).collect { |unit| [unit.name , unit.id] },
+            @employee.organizational_units.collect { |cat| cat.id}),
+          {:multiple=>true, :size=>5}) %>
+      </td>
+      <td>
+        <%= f.label :role %><br />
+        <%= f.collection_select(:role_id, Role.find(:all), :id, :name, { :include_blank=>true }) %>
+      </td>
+      <td>
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
+      </td>
+      <td>
+        <%= f.label :inactive %><br />
+        <%= f.check_box :inactive %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= f.submit "Update" %>
+      </td>
+      <td>
+        <%= link_to 'Back', :action => "index" %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', :id => @employee, :action => "destroy", :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

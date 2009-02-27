@@ -1,0 +1,4 @@
+competence_div = "competence_" + competence_id(@employee_or_role, @skill)
+page
+page.replace_html competence_div, :partial => "competence_cell", :locals => {:employee_or_role => @employee_or_role, :skill => @skill, :actual_competences => @actual_competences, :required_competences => @required_competences}
+page.visual_effect(:highlight, competence_div, :duration => 3)

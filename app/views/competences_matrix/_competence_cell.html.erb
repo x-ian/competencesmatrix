@@ -1,0 +1,9 @@
+<% c_id = competence_id(employee_or_role, skill) %>
+<% c = Competence.find_by_employee_id_and_skill_id(employee_or_role.id, skill.id) if actual_competences %>
+<% c = Competence.find_by_role_id_and_skill_id(employee_or_role.id, skill.id) if required_competences %>
+<div id="competence_<%=c_id%>">
+  <%=c.skill_range.value unless c == nil || c.skill_range == nil || c.skill_range.value == nil %>
+  <%=" (" + maturity_level_description(c.skill_maturity_range, skill.id) + ")" unless c == nil || c.skill_maturity_range == nil %><br/>
+</div>
+<!--<span id="edit_competence_link_<%=c_id%>" class="popup_link">(edit)</span>-->
+<%= render :partial => 'edit_competence_popup', :locals => {:employee_or_role => employee_or_role, :skill => skill, :actual_competences => actual_competences, :required_competences => required_competences } %>

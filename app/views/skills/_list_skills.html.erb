@@ -1,0 +1,40 @@
+<h1>Listing skills</h1>
+
+<table cellspacing="0" cellpadding="0">
+  <colgroup>
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="200">
+  </colgroup>
+  <tr>
+    <th class="header">Name</th>
+    <th class="header">Description</th>
+    <th class="header">Skill model</th>
+    <th class="header">Skill maturity model</th>
+    <th class="header">Skill maturity range descriptions</th>
+    <th class="header">Skill categories</th>
+  </tr>
+
+  <% for e in Skill.find(:all) %>
+    <tr class="<%=cycle('record', 'even-record record') %>">
+      <td><%=link_to e.name, :action => "edit", :id => e %></td>
+      <td><%=h e.description %></td>
+      <td><%=h e.skill_model.name unless e.skill_model == nil %></td>
+      <td><%=h e.skill_maturity_model.name unless e.skill_maturity_model == nil %></td>
+      <td>
+        <% for unit in e.skill_maturity_range_descriptions %>
+          <%= h unit.description %> (for <%=h unit.skill_maturity_range.value%>),
+        <% end %>
+      </td>
+      <td>
+        <% for unit in e.skill_categories %>
+          <%= h unit.name %>,
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>

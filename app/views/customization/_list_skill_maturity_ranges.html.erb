@@ -1,0 +1,26 @@
+<h1>Listing skill maturity ranges</h1>
+
+<table cellspacing="0" cellpadding="0">
+  <colgroup>
+    <col width="200">
+    <col width="200">
+    <col width="200">
+    <col width="200">
+  </colgroup>
+  <tr>
+    <th class="header">Skill model</th>
+    <th class="header">Name</th>
+    <th class="header">Default maturity value description</th>
+    <th class="header">Description</th>
+  </tr>
+
+  <% for e in SkillMaturityRange.find(:all) %>
+    <tr class="<%=cycle('record', 'even-record record') %>">
+      <td><%=h e.skill_maturity_model.name unless e.skill_maturity_model == nil %></td>
+      <td><%=link_to e.value, :action => "edit_skill_maturity_range", :id => e %></td>
+      <td><%=h e.default_maturity_range_description%></td>
+      <td><%=h e.description %></td>
+    </tr>
+  <% end %>
+
+</table>

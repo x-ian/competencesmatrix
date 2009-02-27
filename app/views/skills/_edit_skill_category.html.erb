@@ -1,0 +1,44 @@
+<h1>Edit skill category</h1>
+
+<table>
+  <% form_for(@skill_category, :url => { :action => "update_skill_category", :id => @skill_category}) do |f| %>
+    <%= f.error_messages %>
+    <colgroup>
+      <col width="200">
+      <col width="200">
+      <col width="350">
+    </colgroup>
+    <tr>
+      <td >
+        <%= f.label :name %><br/>
+        <%= f.text_field :name %>
+      </td>
+      <td>
+        <%= f.label :parent %><br/>
+        <%= tree_select(
+          SkillCategory.find_all_root_elements,
+          'skill_category',
+          'parent_id',
+          @skill_category,
+          nil
+        ) %>
+      </td>
+      <td>
+        <%= f.label :description %><br />
+        <%= f.text_area :description, :size=>"40x4" %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= f.submit "Update" %>
+      </td>
+      <td>
+        <%= link_to 'Back', :action => "index" %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', :id=>@skill_category, :confirm => 'Are you sure?', :action => "destroy_skill_category", :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

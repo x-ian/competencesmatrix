@@ -1,0 +1,124 @@
+one:
+  id: 1
+  name: Snr Reliability Eng
+  description:
+
+2:
+  id: 2
+  name: Reliabilty Technician
+  description:
+
+3:
+  id: 3
+  name: Reliability Eng
+  description:
+
+4:
+  id: 4
+  name: Draftsman
+  description:
+
+5:
+  id: 5
+  name: Snr Mech Eng
+  description:
+
+6:
+  id: 6
+  name: Mech Eng
+  description:
+
+7:
+  id: 7
+  name: Trainee Draftsman
+  description:
+
+8:
+  id: 8
+  name: Clerk
+  description:
+
+9:
+  id: 9
+  name: Secretary
+  description:
+
+10:
+  id: 10
+  name: Proj Foreman
+  description:
+
+11:
+  id: 11
+  name: Snr PC Eng
+  description:
+
+12:
+  id: 12
+  name: PC Eng
+  description:
+
+13:
+  id: 13
+  name: Snr Planning Eng
+  description:
+
+14:
+  id: 14
+  name: Snr Planner U/G
+  description:
+
+15:
+  id: 15
+  name: Snr Planner Tawi
+  description:
+
+16:
+  id: 16
+  name: Snr Planner Mobile
+  description:
+
+17:
+  id: 17
+  name: Snr Planner Elec
+  description:
+
+18:
+  id: 18
+  name: Snr Planner Anawe
+  description:
+
+19:
+  id: 19
+  name: Planner
+  description:
+
+20:
+  id: 20
+  name: Clerk
+  description:
+
+21:
+  id: 21
+  name: Admin Officer
+  description:
+
+22:
+  id: 22
+  name: System Administrator
+  description:
+
+23:
+  id: 23
+  name: Data Administrator
+  description:
+
+24:
+  id: 24
+  name: Snr Cost Eng
+  description:
+
+25:
+  id: 25
+  name: Admin Officer
+  description:

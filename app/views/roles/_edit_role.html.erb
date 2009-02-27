@@ -1,0 +1,41 @@
+<h1>Edit role</h1>
+
+<table>
+  <colgroup>
+    <col width="200">
+    <col width="200">
+    <col width="350">
+  </colgroup>
+  <% form_for(@role, :url => { :action => "update", :id => @role}) do |f| %>
+    <%= f.error_messages %>
+    <tr>
+      <td>
+        <%= f.label :name %><br/>
+        <%= f.text_field :name %>
+      </td>
+      <td>
+        <%= f.label :organizational_units %> <br/>(multiple tree)<br/>
+        <%= select_tag("organizational_unit_ids[]",
+          options_for_select(OrganizationalUnit.find(:all).collect { |unit| [unit.name , unit.id] },
+            @role.organizational_units.collect { |cat| cat.id}),
+          {:multiple=>true, :size=>5}) %>
+      </td>
+      <td>
+        <%= f.label :description %><br />
+        <%= f.text_area :description, :size=>"40x4" %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= f.submit "Update" %>
+      </td>
+      <td>
+        <%= link_to 'Back', :action => "index" %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', :id => @role, :action => "destroy", :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

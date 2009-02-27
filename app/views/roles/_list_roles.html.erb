@@ -1,0 +1,27 @@
+<h1>Listing roles</h1>
+
+<table cellspacing="0" cellpadding="0">
+  <colgroup>
+    <col width="200">
+    <col width="200">
+    <col width="350">
+  </colgroup>
+  <tr>
+    <th class="header">Name</th>
+    <th class="header">Organizational Units</th>
+    <th class="header">Description</th>
+  </tr>
+
+  <% for role in Role.find(:all) %>
+    <tr class="<%=cycle('record', 'even-record record') %>">
+      <td><%=link_to role.name, :action => "edit", :id => role %></td>
+      <td>
+        <% for unit in role.organizational_units %>
+          <%= h unit.name %>, 
+        <% end %>
+      </td>
+      <td><%=h role.description %></td>
+    </tr>
+  <% end %>
+
+</table>

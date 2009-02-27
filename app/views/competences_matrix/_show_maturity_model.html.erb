@@ -1,0 +1,8 @@
+<table>
+  <% SkillMaturityRange.find_all_by_skill_maturity_model_id(@maturity_model_id).each do |s| %>
+    <tr>
+      <td><%= label_tag s.value %>:</td>
+      <td><%= text_field_tag s.value, s.default_maturity_range_description %></td>
+    </tr>
+  <% end %>
+</table>

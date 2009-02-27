@@ -1,0 +1,1 @@
+page.replace_html "message", :partial => "show_maturity_model_ranges", :object => @message

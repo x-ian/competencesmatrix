@@ -1,0 +1,84 @@
+one:
+  id: 1
+  name: PJV
+  parent_id:
+  lft: 1
+  description: 
+
+2:
+  id: 2
+  name: Shifts
+  parent_id: 1
+  description:
+
+3:
+  id: 3
+  name: Process Techs
+  parent_id: 2
+  description:
+
+4:
+  id: 4
+  name: Crew 1
+  parent_id: 2
+  description:
+
+5:
+  id: 5
+  name: Crew 2
+  parent_id: 2
+  description:
+
+6:
+  id: 6
+  name: Crew 3
+  parent_id: 2
+  description:
+
+10:
+  id: 10
+  name: Departments
+  parent_id: 1
+  description:
+
+11:
+  id: 11
+  name: Rel Eng
+  parent_id: 10
+  description:
+
+12:
+  id: 12
+  name: Mech Eng
+  parent_id: 10
+  description:
+
+13:
+  id: 13
+  name: Construction
+  parent_id: 10
+  description:
+
+14:
+  id: 14
+  name: Process Control
+  parent_id: 10
+  description:
+
+15:
+  id: 15
+  name: Planning
+  parent_id: 10
+  description:
+
+16:
+  id: 16
+  name: PC Systems
+  parent_id: 10
+  description:
+
+17:
+  id: 17
+  name: Costs/Info
+  parent_id: 10
+  description:
