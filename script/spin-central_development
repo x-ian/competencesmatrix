@@ -1,0 +1,7 @@
+#!/bin/sh
+
+/home/webuser/capistrano/competencesmatrix/current/script/process/spawner \
+  mongrel \
+  --environment=central_development \
+  --instances=1 \
+  --port=3000
