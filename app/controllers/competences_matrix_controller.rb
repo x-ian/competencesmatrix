@@ -35,7 +35,30 @@ class CompetencesMatrixController < ApplicationController
 
   end
 
+  def show_competence_popup
+    @actual_competences = params[:actual_competences]
+    @required_competences = params[:required_competences]
+
+    employee_or_role = Employee.find(params[:employee_or_role_id]) if @actual_competences
+    employee_or_role = Role.find(params[:employee_or_role_id]) if @required_competences
+    skill = Skill.find(params[:skill_id])
+
+    render :update do |page|
+      page.replace_html "popup_competence_table", :partial => "popup_competence_table", :locals => { :employee_or_role => employee_or_role, :skill => skill, :actual_competences => @actual_competences, :required_competences => @required_competences }
+      #toggle_select_boxes_for_popups page
+      page << "$('competence_popup').popup.show();"
+    end
+  end
+
   def edit_competence
+    if params[:aktion]=="cancel"
+      render :update do |page|
+        #toggle_select_boxes_for_popups page
+        page << "$('competence_popup').popup.hide();"
+      end
+      return
+    end
+
     @actual_competences = true unless params[:employee_id] == nil
     @required_competences = true unless params[:role_id] == nil
 

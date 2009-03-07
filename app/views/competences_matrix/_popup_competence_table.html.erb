@@ -1,0 +1,53 @@
+<% c_id = competence_id(employee_or_role, skill) %>
+<% c = Competence.find_by_employee_id_and_skill_id(employee_or_role.id, skill.id) if actual_competences %>
+<% c = Competence.find_by_role_id_and_skill_id(employee_or_role.id, skill.id) if required_competences %>
+
+<table>
+  <tr>
+    <% if actual_competences %>
+      <td><b>Employee</b></td>
+      <td><%=employee_or_role.name%></td>
+      <%= hidden_field_tag :employee_id, employee_or_role.id %>
+    <% end %>
+    <% if required_competences %>
+      <td><b>Role</b></td>
+      <td><%=employee_or_role.name%></td>
+      <%= hidden_field_tag :role_id, employee_or_role.id %>
+    <% end %>
+  </tr>
+  <tr>
+    <td><b>Skill</b></td>
+    <td><%=skill.name%></td>
+    <%= hidden_field_tag :skill_id, skill.id %>
+  </tr>
+  <tr><td><br/></td></tr>
+  <% if skill.skill_model != nil %>
+    <tr>
+      <td>
+        <b>Level</b><br/> (<%= skill.skill_model.name %>)
+      </td>
+      <td>
+        <% for sr in SkillRange.find(:all, :conditions => ["skill_model_id = ?", skill.skill_model.id]) %>
+          <%= radio_button_tag "skill_range_id", sr.id, (c != nil && c.skill_range_id == sr.id ? true : false) %> <%= sr.value %><br/>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  <% if skill.skill_maturity_model != nil %>
+    <tr>
+      <td>
+        <b>Maturity level</b><br/> (<%= skill.skill_maturity_model.name %>)
+      </td>
+      <td>
+        <% for smr in SkillMaturityRange.find(:all, :conditions => ["skill_maturity_model_id = ?", skill.skill_maturity_model.id]) %>
+          <%= radio_button_tag "skill_maturity_range_id", smr.id, (c != nil && c.skill_maturity_range_id == smr.id ? true : false)  %> <%= maturity_level_description(smr, skill.id)%><br/>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td><b>Expiry date</b></td>
+    <td><%= calendar_date_select_tag "expiry_date", (c == nil ? "" : c.expiry_date), :size => 10, :maxlength => 10  %></td>
+  </tr>
+  <tr><td><br/></td></tr>
+</table>

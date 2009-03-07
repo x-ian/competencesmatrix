@@ -2,6 +2,13 @@
 <%= stylesheet_link_tag 'popup-kit/popup.css' %>
 <%= javascript_include_tag 'popup-kit/popup.js' %>
 
+<div class="centered-popup" style="width:950px; z-index:5000;">
+  <div id="competence_popup" class="popup" style="display:none">
+    <%= render :partial => 'popup_competence_singleton', :locals => { :competence => Competence.new }  %>
+  </div>
+  <%= javascript_tag "new Popup('competence_popup','null',{modal:true,position:'center'})" %>
+</div>
+
 <table>
   <tr>
     <td>

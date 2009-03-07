@@ -1,0 +1,12 @@
+<h1>Edit competence</h1>
+
+<%= form_remote_tag( :url => { :action => "edit_competence", :id => competence } ) %>
+
+<table class="blindtable" id="popup_competence_table">
+  <tr><td></td></tr>
+  <%#= render :partial => 'popup_competence_table', :locals => { :competence => competence } %>
+</table>
+<hr/>
+<%= submit_tag 'Update', :class => 'popup_closebox' %>
+<%= link_to_remote 'Cancel', :url => { :action => "edit_competence", :aktion => :cancel } %>
+</form>

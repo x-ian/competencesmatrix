@@ -1,3 +1,14 @@
+/* fix for IE 6 (only ?) to remove line breaks around form tags */
+form {margin: 0px; padding: 0px; display: inline;}
+
+.centered-popup
+{
+    position:fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
 tr.record td {
     background-color:#E6F2FF;
     border-bottom:1px solid #C5DBF7;
@@ -31,13 +42,29 @@ th.header {
     padding:5px 4px;
 }
 
-<!--
-<table cellspacing="0px" cellpadding="0px">
-TABLE {
-  border-collapse: collapse;
+
+table.blindlayouttable {
+    border:0;
+    margin:0;
+    padding:0;
+    border-spacing:0;
+    border-width:0;
 }
 
-TABLE TD {
-  padding: 0px;
+table.blindlayouttable td {
+    border-bottom:0px;
+    border-left:0px;
+    padding:0px 0px;
 }
--->
+
+table.blindtable {
+    border:0;
+    margin:0;
+    padding:0;
+}
+
+table.blindtable td {
+    border-bottom:0px;
+    border-left:0px;
+    padding:0px 0px;
+}
