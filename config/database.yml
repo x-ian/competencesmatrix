@@ -25,11 +25,10 @@ development:
 
 # Central dev on amazon
 central_development:
-  adapter: mysql #jdbcmysql #
-#  adapter: jdbcmysql
+  adapter: mysql
   encoding: utf8
-  database: competencesmatrix_development
-  username: root
+  database: competencesmatrix_central_development
+  username: neumann
   password:
   host: localhost
 
